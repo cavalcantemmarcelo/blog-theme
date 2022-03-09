@@ -1,0 +1,39 @@
+/*
+    Theme name: Blog Theme
+    Theme URI: 
+    Author: Marcelo
+    Author URI: https://vasto.com.br
+    Github Theme URI:  
+    Description: Tema customizado para blog...
+    Version: 1.0.0
+    Text domain: pt_BR
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+header {
+    background-color: #dedede;
+}
+
+footer {
+    background-color: #dedede;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
