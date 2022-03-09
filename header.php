@@ -12,7 +12,7 @@
 <body>
 <header>
     <div class="container">
-        <h1><a href="<?php bloginfo('url')?>"><?php bloginfo('name') ?></a></h1>
+        <h1 class="header-logo"><a href="<?php bloginfo('url')?>"><?php bloginfo('name') ?></a></h1>
         <div class="header-menu">
             <?php wp_nav_menu(
                 array(
