@@ -1,9 +1,9 @@
 # Tema personalizado para Wordpress
-Este tema deve ser utilizado dentro do diretório *wp-content/themes* da sua instalação do WordPress.
+Este tema deve ser utilizado dentro do diretório <font color=\"blue\">wp-content/themes</font> da sua instalação do WordPress.
 
-## Estrutura básica de rquivos
-```
-.blog
+## Estrutura básica de Arquivos
+
+.
 +-- style.css       // configurações do tema: nome, autor...
 +-- index.php       // página principal do tema
 +-- header.php      // cabeçalho do tema
@@ -11,4 +11,3 @@ Este tema deve ser utilizado dentro do diretório *wp-content/themes* da sua ins
 +-- functions.php   // funções gerais do tema
 +-- page.php        // página única
 
-```
