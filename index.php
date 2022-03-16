@@ -8,10 +8,18 @@
         ?>
         <content>
             <div class="container">
-                <h2> <a href="<?php the_permalink() ?>">
+                <h2><a href="<?php the_permalink() ?>">
                     <?php the_title() ?></a>
                 </h2>
-                <?php the_content() ?>
+                <?php 
+                    if(has_post_thumbnail()){
+                        the_post_thumbnail('imagem_horizontal');
+                    }
+                ?>
+                <?php the_excerpt() ?>
+                <p><a href="<?php the_permalink() ?>">
+                    Saiba mais</a>
+                </p>
             </div>
         </content>
         <?php 
@@ -23,7 +31,35 @@
     </section>
     <aside>
         <div class="container">
-            <?php get_sidebar(); ?>
+            <?php 
+
+                $args = array(
+                    'post_type' => 'portfolio',
+                    'posts_per_page' => '5',
+                    'orderby' => 'title'
+                );
+
+                $portfolioItens = new WP_Query($args);
+
+                while( $portfolioItens->have_posts()) : 
+                    $portfolioItens->the_post();
+                
+            
+            ?>
+                <div class="portfolio-item">
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_content(); ?>
+                    <a href="<?php the_permalink() ?>">
+                    <?php 
+                    if(has_post_thumbnail()){
+                        the_post_thumbnail('imagem_horizontal');
+                    }
+                    ?>
+                    </a>
+                    <p><a href="<?php the_permalink() ?>">Saiba mais</a>
+                </p>
+                </div>
+            <?php endwhile; ?>
         </div>
     </aside>
 </main>
