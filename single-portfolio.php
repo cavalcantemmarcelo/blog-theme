@@ -11,6 +11,16 @@
                     the_post_thumbnail('imagem_horizontal');
                 }
             ?>
+
+            <h3>Autor do livro</h3>
+            <?php 
+            $image = get_field('autor_do_livro');
+            if( !empty( $image ) ): ?>
+                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" />
+            <?php endif; ?>
+            <p><strong>Código: </strong> 
+                <?php the_field('codigo'); ?>
+            </p>
         </div>
     </section>
 

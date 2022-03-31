@@ -72,3 +72,69 @@ function createPortfolio() {
 }
 
 add_action("init", "createPortfolio");
+
+
+/*
+ * Meta Box
+ */
+function info_add_custom_box() {
+    $screens = [ 'post', 'info_cpt' ];
+    foreach ( $screens as $screen ) {
+        add_meta_box(
+            'info_box_id',                 // ID
+            'Info Title',                  // Box title
+            'info_custom_box_html',        // Content callback
+            $screen                        // Post type
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'info_add_custom_box' );
+
+function info_custom_box_html( $post ) {
+    echo '<label for="info_field">Description for this field</label>
+    <select name="info_field" id="info_field" class="postbox">
+        <option value="">Select something...</option>
+        <option value="something">Something</option>
+        <option value="else">Else</option>
+    </select>';
+}
+
+function info_add_custom_box2() {
+    $screens = [ 'post', 'info_cpt' ];
+    foreach ( $screens as $screen ) {
+        add_meta_box(
+            'info_box_id_2',                 // ID
+            'Info Title 2',                  // Box title
+            'info_custom_box_html',        // Content callback
+            $screen                        // Post type
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'info_add_custom_box2' );
+
+
+add_filter( 'rwmb_meta_boxes', 'your_prefix_register_meta_boxes' );
+
+function your_prefix_register_meta_boxes( $meta_boxes ) {
+    $prefix = '';
+
+    $meta_boxes[] = [
+        'title'   => esc_html__( 'Sinopse Filme', 'online-generator' ),
+        'id'      => 'sinopse_filme',
+        'context' => 'normal',
+        'fields'  => [
+            [
+                'type' => 'textarea',
+                'name' => esc_html__( 'Sinopse', 'online-generator' ),
+                'id'   => $prefix . 'sinopse',
+            ],
+            [
+                'type' => 'text',
+                'name' => esc_html__( 'Duração', 'online-generator' ),
+                'id'   => $prefix . 'duracao',
+            ],
+        ],
+    ];
+
+    return $meta_boxes;
+}
